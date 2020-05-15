@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :item_comments, only: [:create, :destroy]
   end
+  resources :account_activations, only: [:edit]
 end
