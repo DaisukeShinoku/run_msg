@@ -14,8 +14,27 @@
 <p><%= image_tag "/assets/no_image.jpg" %></p>
 <% end %>
 
+<%= link_to "Back", items_path %>
+<% if @item.user == current_user %>
+<%= "|" %>
 <%= link_to "Edit", edit_item_path %>
 <%= "|" %>
-<%= link_to "Back", items_path %>
-<%= "|" %>
 <%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
+<% @item.item_comments.each do |item_comment| %>
+	<div>
+		<%= item_comment.user.name %>
+		<%= item_comment.created_at.strftime('%Y/%m/%d') %>
+		<%= item_comment.comment %>
+		<% if @item_comment.user == current_user %>
+		<%= link_to "Delete", item_item_comment_path(@item, item_comment[:id]), method: :delete, data: { confirm: "Are You sure?" } %>
+		<% end %>
+	</div>
+<% end %>
+
+<%= form_for [@item, @item_comment] do |f| %>
+<%= f.text_area :comment %>
+<%= f.submit 'Create Comment' %>
+<% end %>
