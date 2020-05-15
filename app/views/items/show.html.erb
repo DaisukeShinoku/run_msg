@@ -1,0 +1,21 @@
+<p><strong>Name: </strong><%= @item.name %></p>
+
+<p><strong>Price: </strong><%= @item.price %></p>
+
+<p><strong>Maker: </strong><%= @item.maker %></p>
+
+<p><strong>Link: </strong><%= @item.link %></p>
+
+<p><strong>Contents: </strong><%= @item.contents %></p>
+
+<% if @item.img? %>
+<p><%= image_tag @item.img.url %></p>
+<% else %>
+<p><%= image_tag "/assets/no_image.jpg" %></p>
+<% end %>
+
+<%= link_to "Edit", edit_item_path %>
+<%= "|" %>
+<%= link_to "Back", items_path %>
+<%= "|" %>
+<%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>

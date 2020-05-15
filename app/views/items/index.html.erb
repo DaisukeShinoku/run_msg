@@ -1,0 +1,17 @@
+<h2>Items</h2>
+
+<% @items.each do |item| %>
+<ul class="item">
+<li><%= item.name %></li>
+<li><%= item.price %></li>
+<li><%= item.maker %></li>
+<li><%= item.link %></li>
+<li><%= item.contents %></li>
+<% if item.img? %>
+<%= link_to (image_tag item.img.url), item_path(item.id) %>
+<% else %>
+<%= link_to (image_tag "/assets/no_image.jpg"), item_path(item.id) %>
+<% end %>
+
+</ul>
+<% end %>

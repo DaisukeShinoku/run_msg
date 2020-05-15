@@ -1,0 +1,32 @@
+<h2>New Item</h2>
+
+<%= form_for(@item) do |f| %>
+
+    <ul class="form_name">
+    <li><%= f.label :name, "Name" %></li>
+    <li><%= f.text_field :name %></li>
+	</ul>
+    <ul class="form_price">
+    <li><%= f.label :price, "Price" %></li>
+    <li><%= f.text_area :price %></li>
+	</ul>
+    <ul class="form_maker">
+    <li><%= f.label :maker, "Maker" %></li>
+    <li><%= f.text_area :maker %></li>
+	</ul>
+    <ul class="form_link">
+    <li><%= f.label :link, "Link" %></li>
+    <li><%= f.text_area :link %></li>
+	</ul>
+    <ul class="form_contents">
+    <li><%= f.label :contents, "Contents" %></li>
+    <li><%= f.text_area :contents %></li>
+	</ul>
+	<ul class="form_img">
+    <li><%= f.label :img, "Image" %></li>
+    <li><%= f.file_field :img %></li>
+	</ul>
+
+    <div class="btn"><%= f.submit "Create Item" %></div>
+
+<% end %>
